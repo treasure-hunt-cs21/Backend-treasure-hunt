@@ -37,7 +37,7 @@ router.post('/', (req, res) => {
     db.findById(req.body.room_id)
     .then(room => {
         if (room) {
-            res.status(400).json({message: "Room already posted, updates made!"})
+            res.status(200).json({message: "Room already posted!"})
         } else {
             db.add(req.body)
             .then(room => {
