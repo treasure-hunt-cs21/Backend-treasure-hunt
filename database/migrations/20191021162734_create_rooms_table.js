@@ -28,10 +28,6 @@ exports.up = function(knex) {
         rooms.integer("e", 10);
 
         rooms.integer("w", 10);
-
-        rooms.specificType('items', 'text ARRAY');
-
-        rooms.specificType('exits', 'text ARRAY');
     });
   };
   
