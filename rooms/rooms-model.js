@@ -5,9 +5,16 @@ module.exports = {
   find,
   findBy,
   findById,
-  update,
-  remove
+  updateDirection,
+  remove,
+  getDirection
 };
+
+function getDirection(room_id, direction) {
+    return db('rooms')
+    .where({ room_id })
+    .select(direction)
+}
 
 function find() {
   return db('rooms');
@@ -21,16 +28,16 @@ function add(ticket) {
   return db('rooms').insert(ticket);
 }
 
-function findById(id) {
+function findById(room_id) {
   return db('rooms')
-    .where({ id })
+    .where({ room_id })
     .first();
 }
 
-function update(id, changes) {
+function updateDirection(room_id, direction, direction_id) {
   return db("rooms")
-  .where({ id })
-  .update(changes)
+  .where({ room_id })
+  .update(direction, direction_id)
 }
 
 function remove(id) {
