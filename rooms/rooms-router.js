@@ -10,6 +10,14 @@ router.get('/', (req, res) => {
     .catch(err => res.send(err));
 });
 
+router.get('/map', (req, res) => {
+    db.getMap()
+      .then(rooms => {
+        res.status(200).json(rooms);
+      })
+      .catch(err => res.status(500).json(err));
+  });
+
 router.get('/:id', (req, res) => {
   db.findById(req.params.id)
     .then(room => {

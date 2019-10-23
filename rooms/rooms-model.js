@@ -7,8 +7,14 @@ module.exports = {
   findById,
   updateDirection,
   remove,
-  getDirection
+  getDirection,
+  getMap
 };
+
+function getMap() {
+    return db('rooms')
+    .select("room_id", "title", "n", "s", "e", "W", "coordinates")
+}
 
 function getDirection(room_id, direction) {
     return db('rooms')
