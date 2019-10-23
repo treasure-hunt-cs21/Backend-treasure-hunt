@@ -5,7 +5,6 @@ exports.seed = function(knex,Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('rooms').insert([
-        
           {
             room_id: 0,
             title: "A brightly lit room",
@@ -6329,9 +6328,7 @@ exports.seed = function(knex,Promise) {
             s: null,
             e: 456,
             w: null
-          }
-        
-        
+          }      
       ]);
     });
 };
